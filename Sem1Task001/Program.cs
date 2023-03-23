@@ -8,6 +8,10 @@ if(numLine1 != null && numLine2 !=null)
 }
 if(num1 == num2*num2)
 {
-Console
+Console.WriteLine("Первое число - квадрат второго числа");
+}
+else
+{
+  Console.WriteLine("Первое число - не квадрат не второго числа");
 }
 }
