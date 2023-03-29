@@ -34,6 +34,8 @@
 Console.WriteLine("Введите число");
 int rndNum = int.Parse(Console.ReadLine()??"0");
 
+// Возможно стоило изменить имя переменной... 
+
 if (rndNum < 100)
 {
   Console.WriteLine("третей цифры нет");
