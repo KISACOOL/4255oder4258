@@ -6,6 +6,13 @@
 // 782 -> 8
 // 918 -> 1
 
+// вариант 1
+
+// Console.WriteLine("Введите трехзначное число");
+// int num = int.Parse(Console.ReadLine()??"0");
+// Console.WriteLine((num - num/100 * 100)/10);
+
+//вариант 2
 
 Console.WriteLine("Введите трехзначное число");
 int num = int.Parse(Console.ReadLine()??"0");
