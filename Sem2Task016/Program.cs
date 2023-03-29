@@ -28,15 +28,15 @@ int num1 = int.Parse(Console.ReadLine()??"0");
 Console.WriteLine("Введите второе число");
 int num2 = int.Parse(Console.ReadLine()??"0");
 
-void SqrtTest(int n,int num2)
+void SqrtTest(int a,int b)
 {
-  if (num1 ==num2 * num2)
+  if (a == b * b)
   {
-    Console.WriteLine(num1+" Sqrt "+num2);
+    Console.WriteLine(a + " квадрат " + b);
   }
   else
   {
-    Console.WriteLine(num1+" No Sqrt "+num2);
+    Console.WriteLine(a + " не квадрат " + b);
   }
 }
 
