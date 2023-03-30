@@ -5,19 +5,31 @@
 // 5 -> 2, 4
 // 8 -> 2, 4, 6, 8
 
-Console.WriteLine("Введите число");
-int numN = int.Parse(Console.ReadLine()??"0");
-int startNum = 1;
-string res = string.Empty;
+// Console.WriteLine("Введите число");
+// int numN = int.Parse(Console.ReadLine()??"0");
+// int startNum = 1;
+// string res = string.Empty;
 
-while (startNum <= numN)
-{
-  if (startNum % 2 == 0)
-  {
-    res = startNum + " ";
-    Console.Write(res);
-  }
-  startNum++;
-}
+// while (startNum <= numN)
+// {
+//   if (startNum % 2 == 0)
+//   {
+//     res = startNum + " ";
+//     Console.Write(res);
+//   }
+//   startNum++;
+// }
 
 // Я её решил но остались вопросы.
+
+
+Console.WriteLine("Введите число");
+int numN = int.Parse(Console.ReadLine()??"0");
+int startNum = 2;
+string res = string.Empty;
+while (startNum <= numN)
+{
+res = startNum + " ";
+Console.Write(res);
+startNum=startNum+2;
+}

@@ -31,46 +31,71 @@
 
 // Вариант 2*.1
 
+// Console.WriteLine("Введите число");
+// int rndNum = int.Parse(Console.ReadLine()??"0");
+
+// // Возможно стоило изменить имя переменной... 
+
+// if (rndNum < 100)
+// {
+//   Console.WriteLine("третей цифры нет");
+// }
+// else
+// {
+//   if(rndNum > 100 && rndNum < 1000)
+//   {
+//     Console.WriteLine(rndNum%10); 
+//   }
+//   if(rndNum > 1000 && rndNum < 10000)
+//   {
+//     Console.WriteLine((rndNum/10)%10); 
+//   }
+//   if(rndNum > 10000 && rndNum < 100000)
+//   {
+//     Console.WriteLine((rndNum/100)%10); 
+//   }
+//   if(rndNum > 100000 && rndNum <  1000000)
+//   {
+//     Console.WriteLine((rndNum/1000)%10); 
+//   }
+//   if(rndNum > 1000000 && rndNum < 10000000)
+//   {
+//     Console.WriteLine((rndNum/10000)%10); 
+//   }
+//   if(rndNum > 10000000 && rndNum < 100000000)
+//   {
+//     Console.WriteLine((rndNum/100000)%10); 
+//   }
+//   if(rndNum > 100000000 && rndNum < 1000000000)
+//   {
+//     Console.WriteLine((rndNum/1000000)%10); 
+//   }
+// }
+
+// Условия я конечно выполнил но это такая зелибоба получилась)))
+
 Console.WriteLine("Введите число");
-int rndNum = int.Parse(Console.ReadLine()??"0");
+int number = int.Parse(Console.ReadLine() ?? "0");
+int lengthNum = (int)Math.Log10(number);
 
-// Возможно стоило изменить имя переменной... 
+// Сначала попробывал преоброзовать при помощи 
+// "Convert.ToInt32(Math.Log10(number))", но при
+// преоброзовании он учитывал десятые и на выходе получались разные цифры.
 
-if (rndNum < 100)
+if (lengthNum < 2)
 {
   Console.WriteLine("третей цифры нет");
 }
 else
 {
-  if(rndNum > 100 && rndNum < 1000)
+  int res = 1;
+  int count = 3;
+  while (count <= lengthNum)
   {
-    Console.WriteLine(rndNum%10); 
+    res = res * 10;
+    count++;
   }
-  if(rndNum > 1000 && rndNum < 10000)
-  {
-    Console.WriteLine((rndNum/10)%10); 
-  }
-  if(rndNum > 10000 && rndNum < 100000)
-  {
-    Console.WriteLine((rndNum/100)%10); 
-  }
-  if(rndNum > 100000 && rndNum <  1000000)
-  {
-    Console.WriteLine((rndNum/1000)%10); 
-  }
-  if(rndNum > 1000000 && rndNum < 10000000)
-  {
-    Console.WriteLine((rndNum/10000)%10); 
-  }
-  if(rndNum > 10000000 && rndNum < 100000000)
-  {
-    Console.WriteLine((rndNum/100000)%10); 
-  }
-  if(rndNum > 100000000 && rndNum < 1000000000)
-  {
-    Console.WriteLine((rndNum/1000000)%10); 
-  }
+Console.WriteLine((number/res)%10);
 }
 
-// Условия я конечно выполнил но это такая зелибоба получилась)))
-
+// Вроде чего-то получилось))) Названия переменных мне ненравятся.
