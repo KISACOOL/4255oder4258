@@ -7,6 +7,8 @@
 // 1 -> нет
 // * Сделать вариант с использованием конструкции Dictionary
 
+// Вариант 1
+
 // Console.WriteLine("Введите номер дня");
 // int day = int.Parse(Console.ReadLine()??"0");
 
@@ -33,38 +35,25 @@
 // } 
 
 // Вариант 2*
+
+Dictionary<int, string> daysOfWeek = new Dictionary<int, string>();
+
+daysOfWeek.Add(1, "monday");
+daysOfWeek.Add(2, "tuesday");
+daysOfWeek.Add(3, "wednesday");
+daysOfWeek.Add(4, "Thursday");
+daysOfWeek.Add(5, "friday");
+daysOfWeek.Add(6, "saturday");
+daysOfWeek.Add(7, "sunday");
+
 Console.WriteLine("Введите номер дня");
-int day = int.Parse(Console.ReadLine()??"0");
-void Week(int args)
+int day = int.Parse(Console.ReadLine() ?? "0");
+
+if (daysOfWeek.ContainsKey(day))
 {
-Dictionary<int,string> WeekList = new Dictionary<int,string>();
-
-  WeekList.Add(1, "monday");
-  WeekList.Add(2, "tuesday");
-  WeekList.Add(3, "wednesday");
-  WeekList.Add(4, "Thursday");
-  WeekList.Add(5, "friday");
-  WeekList.Add(6, "saturday");
-  WeekList.Add(7, "sunday");
-  string value = "";
-
-Console.WriteLine(value);
+  Console.WriteLine(daysOfWeek[day]);
 }
- 
-Week(day);
-
-// static void Main(string[] args)
-//         {
-//             Dictionary<string, string> AuthorList = new Dictionary<string, string>();
- 
-//             AuthorList.Add("ggt", "гистидин");
-//             AuthorList.Add("ggg", "фенилаланин");
-//             AuthorList.Add("ctg", "глицин");
-//             AuthorList.Add("ttt", "глицин");
-//             string value = "";
-//             if (AuthorList.TryGetValue("ttt", out value))
-//             {
-//           Console.WriteLine(value);      
-//             }
-//             Console.ReadKey();
-//         }
+else
+{
+  Console.WriteLine("это не день недели");
+}
