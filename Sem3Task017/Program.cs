@@ -4,7 +4,6 @@
 // четверти плоскости, в которой находится эта точка.
 
 // Метод читает данные от пользователя
-
 int ReadData(string msg)
 {
   Console.WriteLine(msg);
@@ -12,19 +11,15 @@ int ReadData(string msg)
   return res;
 }
 
-// int coordX = ReadData("Введите координату x: ");
-// int coordY = ReadData("Введите координату y: ");
-
+// Метод определяет четверть по координатам точки
 void PrintQuterTest(int x, int y)
 {
   if (x > 0 && y > 0) Console.WriteLine("точка в 1 четверти");
   if (x > 0 && y < 0) Console.WriteLine("точка в 2 четверти");
-  if (x < 0 && y > 0) Console.WriteLine("точка в 3 четверти");
-  if (x < 0 && y < 0) Console.WriteLine("точка в 4 четверти");
+  if (x < 0 && y < 0) Console.WriteLine("точка в 3 четверти");
+  if (x < 0 && y > 0) Console.WriteLine("точка в 4 четверти");
 }
 
 int coordX = ReadData("Введите координату X: ");
 int coordY = ReadData("Введите координату Y: ");
 PrintQuterTest(coordX, coordY);
-
-// Здесь какаято ошибка!!!!!
