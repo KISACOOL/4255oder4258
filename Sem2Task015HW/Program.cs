@@ -38,13 +38,13 @@
 
 Dictionary<int, string> daysOfWeek = new Dictionary<int, string>();
 
-daysOfWeek.Add(1, "monday");
-daysOfWeek.Add(2, "tuesday");
-daysOfWeek.Add(3, "wednesday");
-daysOfWeek.Add(4, "Thursday");
-daysOfWeek.Add(5, "friday");
-daysOfWeek.Add(6, "saturday");
-daysOfWeek.Add(7, "sunday");
+daysOfWeek.Add(1, "monday - рабочий день");
+daysOfWeek.Add(2, "tuesday - рабочий день");
+daysOfWeek.Add(3, "wednesday - рабочий день");
+daysOfWeek.Add(4, "Thursday - рабочий день");
+daysOfWeek.Add(5, "friday - рабочий день");
+daysOfWeek.Add(6, "saturday - выходной день");
+daysOfWeek.Add(7, "sunday - выходной день");
 
 Console.WriteLine("Введите номер дня");
 int day = int.Parse(Console.ReadLine() ?? "0");
