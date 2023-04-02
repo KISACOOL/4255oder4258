@@ -9,7 +9,13 @@ int ReadData(string msg)
   int res = int.Parse(Console.ReadLine() ?? "0");
   return res;
 }
+// Метод находит растояние между точками на плоскасти
 double CalcLen2D(int x1, int y1, int x2, int y2)
 {
-  return Math.Sqrt(Math.Pow((x1 - x2),2) + )
+   return Math.Sqrt(Math.Pow((x1 - x2),2) + (y1 - y2) * (y1 - y2));
 }
+int x1 = ReadData("Введите координату x точки A: ");
+int y1 = ReadData("Введите координату y точки A: ");
+int x2 = ReadData("Введите координату x точки B: ");
+int y2 = ReadData("Введите координату y точки B: ");
+Console.WriteLine("Растояние между точками A и B: "+ CalcLen2D(x1, y1, x2, y2));

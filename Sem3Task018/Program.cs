@@ -11,7 +11,7 @@ int ReadData(string msg)
   return res;
 }
 
-// if (num > 0 && num < 0)
+
   void PrintAnswer(int num)
   {
     if (num == 1) Console.WriteLine("x > 0, y > 0");
@@ -21,4 +21,11 @@ int ReadData(string msg)
   }
 
   int num = ReadData("Введите четверть");
+if (num > 0 && num < 5)
+{
   PrintAnswer(num);
+} 
+else
+{
+Console.WriteLine("нет такой ветверти");
+}
