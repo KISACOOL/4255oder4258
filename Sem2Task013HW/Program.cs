@@ -101,24 +101,24 @@ Console.WriteLine((number/res)%10);
 // Вроде чего-то получилось))) Названия переменных мне ненравятся.
 
 
-int num = int.Parse(Console.ReadLine()??"0");
+// int num = int.Parse(Console.ReadLine()??"0");
 
-int res = num;
+// int res = num;
 
-if (num <100 )
+// if (num <100 )
 
-Console.Write("The 3rd number does not exist");
+// Console.Write("The 3rd number does not exist");
 
-else
-{
+// else
+// {
     
 
-while (res >= 1000)
-{
-    res = res /10;
+// while (res >= 1000)
+// {
+//     res = res /10;
  
-}
+// }
 
-res = res%10;
-}
-Console.Write( res );
+// res = res%10;
+// }
+// Console.Write( res );

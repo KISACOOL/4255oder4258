@@ -19,7 +19,8 @@ string LineGen(int num, int pow)
   }
   return res;
 }
-int numN = ReadData("Введите число N: ");
+int num = ReadData("Введите число N: ");
 
-(LineGen(num));
-(LineGen(num));
+Console.WriteLine (LineGen (num,1));
+Console.WriteLine (LineGen (num,2));
+
