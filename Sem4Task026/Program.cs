@@ -16,10 +16,17 @@ void PrintResult(string msg, int res)
 
 int CountDigit(int num)
 {
-  int res = 0; 
-  int res = (int)Math.Log10(number + 1);
+  int res = 0;
+  while(num > 0)
+  {
+    res = res + 1;
+    num = num/10;
+  } 
+  // int res = (int)Math.Log10(num) + 1;
+  return res;
 }
-return res;
+
 
 int numberA = ReadData("Введите число: ");
-
+int res1 = CountDigit(numberA);
+PrintResult("Число состоит из ", res1);
