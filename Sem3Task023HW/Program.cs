@@ -84,7 +84,6 @@ void DrawUniLine (string sampleStr, string startSym, string midSym, string stopS
   }
   Console.WriteLine(stopSym);
 }
-
 int topNum = ReadData("Введите число N: ");
 string firstStr = LineGen(topNum,1,"\u2551 Число:    \u2551");
 string secStr = LineGen(topNum,3,"\u2551 Куб числа:\u2551");
