@@ -65,7 +65,7 @@ string LineGen(int topNum, int pow, string initLine)
   int cube = 0;
   for(int i=1; i<= topNum; i++)
   {
-    cube = (int)Math.Pow(i,pow);
+    cube = (int)Math.Pow(i,3);
     resLine = resLine + ((pow == 3)?cube.ToString():((i).ToString()).PadRight((int)Math.Log10(cube) + 1)) + "\u2551";
   }
   return resLine;
