@@ -1,42 +1,31 @@
-﻿Console.Clear();
+﻿// Задача 27: Напишите программу, которая принимает на
+// вход число и выдаёт сумму цифр в числе.
+// 452 -> 11
+// 82 -> 10
+// 9012 -> 12
 
-Console.Write("Введите число : "); 
-int num = Convert.ToInt32(Console.ReadLine());
-
-void PrintRes(string msg, int sum) // Метод ввывода 
+int ReadData(string msg)
 {
-    Console.WriteLine(msg + sum);
+  Console.WriteLine(msg);
+  int res = int.Parse(Console.ReadLine() ?? "0");
+  return res;
 }
 
-int Sum(int num)// Метод  подсчета суммы числа 
+void PrintResult(string msg, int res)
 {
-
-    int lenght = Convert.ToString(num).Length;
-    int progress = 0;
-    int res = 0;
-
-    for (int i = 0; i < lenght; i++)
-    {
-        progress = num - num % 10;
-        res = res + (num - progress);
-        num = num / 10;
-    }
-    return res;
+  Console.WriteLine(msg + res); 
 }
-
-int sum = Sum(num);
-PrintRes("Сумма числа: " ,  sum); // Ввывод числа
-странной конечно, делаю через длину строки
-Сергей Чубарев 19:58
-я делал через подсчёт цифр в числе, потом через цикл по количеству цифр складывал их
-//Метод суммирования цифр
-long SummNum(long CountN, long num)
+// Метод складывающий цифры в числе
+int CountSumDigit(int num)
 {
-    long res = 0;
-    for(int i=0; i<=CountN; i++)
-    {
-        res += num%10;
-        num=num/10;
-    }
-    return res;
+  int res = 0;
+  while(num > 0)
+  {
+    res = res + num%10;
+    num = num/10;
+  } 
+  return res;
 }
+int numberA = ReadData("Введите число: ");
+int res1 = CountSumDigit(numberA);
+PrintResult("Сумма цифр в числе: ", res1);
