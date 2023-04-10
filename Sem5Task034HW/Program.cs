@@ -76,3 +76,38 @@ int[] arr = Gen1DArr(10,100,999);
 Print1DArr(arr);
 int res = EvenCount(arr);
 Console.WriteLine("Количество четных чисел в массиве: " + res);
+
+////////////////////////////////////////////////////////////////////
+
+// Задача 34 (*)
+
+int[] Gen1DArr(int len, int but, int top)
+{
+  if(but > top)
+  {
+    int buf = but;
+    but = top;
+    top = buf;
+  }
+  Random rnd = new Random();
+  int[] arr = new int[len];
+  for(int i = 0; i < arr.Length; i++)
+  {
+    arr[i] = rnd.Next(but, top + 1); 
+  }
+  return arr;
+}
+
+void BubbleSort(int[] arr)
+{
+  for(int i = 0; i < arr.Length - 1; i++)
+  for(int j = 0; j < arr.Length - i - 1; j++)
+  {
+    if(arr[j] > arr [j + 1])
+    {
+      int temp = arr[j];
+      arr[j] = arr [j + 1];
+      arr [j + 1] = temp;
+    }
+  }
+}
