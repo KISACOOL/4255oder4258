@@ -20,22 +20,15 @@ int[] Gen1DArr(int len, int but, int top)
   }
   return arr;
 }
-//Метод генерирует  
-int[] Gen1DArr(int len, int but, int top)
+// Метод печати массива
+void Print1DArr(int[] arr)
 {
-  if(but > top)
+  Console.Write("[");
+  for(int i = 0; i < arr.Length - 1; i++)
   {
-    int buf = but;
-    but = top;
-    top = buf;
+    Console.Write(arr[i] + ", ");
   }
-  Random rnd = new Random();
-  int[] arr = new int[len];
-  for(int i = 0; i < arr.Length; i++)
-  {
-    arr[i] = rnd.Next(but, top + 1); 
-  }
-  return arr;
+  Console.WriteLine(arr[arr.Length - 1] + "]");
 }
 // Метод меняющий значение элементов массива плюс на минус 
 void InversArr(int[] arr) 
@@ -45,7 +38,6 @@ void InversArr(int[] arr)
     arr[i] = arr[i] * (-1);
   }
 }
-
 
 int[] arr = Gen1DArr(10,999,-999);
 Print1DArr(arr);

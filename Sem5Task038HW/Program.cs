@@ -38,8 +38,8 @@ void Print1DArr(double[] arr)
 double DiffOfNum(double[] arr)
 {
   double res = 0;
-  double min = double.MaxValue;
-  double max = double.MinValue;
+  double min = arr.Min();  //double.MaxValue;
+  double max = arr.Max();  //double.MinValue;
   for(int i = 0; i < arr.Length; i++)
   {
     if(min > arr[i]) arr[i] = min;
@@ -52,3 +52,8 @@ double[] arr = Gen1DArr(10,0,99);
 Print1DArr(arr);
 double res = DiffOfNum(arr);
 Console.WriteLine("Разница между максимальным и минимальным элементом массива: " + res);
+
+///////////////////////////////////////////////////////////////////
+
+// Задача 38*
+
