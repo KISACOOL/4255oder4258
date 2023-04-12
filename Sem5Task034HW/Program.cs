@@ -133,10 +133,6 @@ void CountingSort(int[] arr)
   int[] count = new int[max - min + 1];
   int z = 0;
 
-  // for(int i = 0; i < count.Length - 1; i++)
-  // {
-  //   count[i] = 0; 
-  // } 
   for(int i = 0; i < arr.Length; i++)
   {
     count[arr[i] - min]++;
