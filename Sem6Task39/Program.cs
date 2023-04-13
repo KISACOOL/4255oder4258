@@ -65,8 +65,8 @@ void SwapArr(int[] arr)
 {
   for(int i = 0; i < arr.Length/2; i++ )
   {
-    //(arr[i], arr[arr.Length - 1 -i]) = ()
-    int buf = arr[1];
+    //(arr[i], arr[arr.Length - 1 -i]) = (arr[arr.Length - 1 -i],arr[i]);
+    int buf = arr[i];
     arr[i] = arr[arr.Length - 1 -i];
     arr[arr.Length - 1 -i] = buf;
   }
@@ -75,7 +75,7 @@ void SwapArr(int[] arr)
 int[] SwapNewArr(int[] arr) 
 {
   int[] outArr = new int[arr.Length];
-  for(int i = 0; i < arr.Length - 1; i++ )
+  for(int i = 0; i < arr.Length; i++ )
   {
     outArr[outArr.Length -1 -i] = arr[i];
   }
@@ -86,4 +86,11 @@ int[] testArray = Gen1DArr(12,10,100);
 Print1DArr(testArray);
 
 DateTime d1 = DateTime.Now;
-int[] newArray = SwapNewArr
+SwapArr(testArray);
+Print1DArr(testArray);
+Console.WriteLine(DateTime.Now - d1);
+
+DateTime d2 = DateTime.Now;
+int[] newArray = SwapNewArr(testArray);
+Print1DArr(newArray);
+Console.WriteLine(DateTime.Now - d2);

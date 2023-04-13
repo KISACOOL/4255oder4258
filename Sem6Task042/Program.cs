@@ -10,12 +10,6 @@ int ReadData(string msg)
   return res;
 }
 
-//Метод вывода результатов
-void PrintResult(string msg, int res)
-{
-  Console.WriteLine(msg + res);
-}
-
 string DecToBin(int num)
 {
   string res = string.Empty;
@@ -26,6 +20,9 @@ string DecToBin(int num)
   }
   return res;
 }
-
 int num = ReadData("Введите число: ");
-PrintResult("двоичное:" + DecToBin(num));
+string res = DecToBin(num);
+Console.WriteLine(res);
+Console.WriteLine(Convert.ToString(num,2));
+Console.WriteLine(Convert.ToString(num,8));
+Console.WriteLine(Convert.ToString(num,16));

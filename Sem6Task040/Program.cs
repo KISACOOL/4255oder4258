@@ -12,10 +12,9 @@ int ReadData(string msg)
   return res;
 }
 
-bool TrianTest(int a, int b, int c)
+void TrianTest(int a, int b, int c)
 {
-  bool res = falce;
-  if((a<=b+c) && (b<=a+c) && (c<=a+b))
+    if((a<=b+c) && (b<=a+c) && (c<=a+b))
   {
     Console.WriteLine("треугольник существует");
   }
@@ -23,8 +22,10 @@ bool TrianTest(int a, int b, int c)
   {
     Console.WriteLine("треугольник не существует"); 
   }
+  
 }
 
-int numberA =  ReadData("Введите длинну стороны А: ");
-int numberB =  ReadData("Введите длинну стороны B: ");
-int numberC =  ReadData("Введите длинну стороны C: ");
+int A =  ReadData("Введите длинну стороны А: ");
+int B =  ReadData("Введите длинну стороны B: ");
+int C =  ReadData("Введите длинну стороны C: ");
+TrianTest(A, B, C);
