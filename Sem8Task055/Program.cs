@@ -1,8 +1,8 @@
-﻿// Задача №48
-// Задайте двумерный массив размера m на n,
-// каждый элемент в массиве находится по формуле: Aₘₙ = m+n.
-// Выведите полученный массив на экран.
-
+﻿// Задача №55
+// Задайте двумерный массив. Напишите программу,
+// которая заменяет строки на столбцы. В случае,
+// если это невозможно, программа должна вывести
+// сообщение для пользователя.
 
 //Метод ввода
 int ReadData(string msg)
@@ -46,21 +46,22 @@ void Print2DArr(int[,] arr)
   }
 }
 
-int[,] FillNM2DArr(int[,] arr)
+int[,] Transp(int[,] matr)
 {
-    for (int i = 0; i < arr.GetLength(0); i++)
+  int[,] outMatr = new int[matr.GetLength(0),matr.GetLength(1)];
+  for(int i = 0; i < matr.GetLength(0); i++)
+  {
+    for(int j = 0; j < matr.GetLength(1); j++)
     {
-        for(int j=0; j < arr.GetLength(1); j++)
-        {
-            arr[i,j] = i+j;
-        }
+      outMatr[j,i] = outMatr[i,j];
     }
-    return arr;
+  }
+   return outMatr; 
 }
 
 int row = ReadData("Введите кол-во строк: ");
 int col = ReadData("Введите кол-во столбцов: ");
 int[,] arr2D = Gen2DArr(row, col, 10, 99);
 Print2DArr(arr2D);
-int[,] arr = FillNM2DArr(arr2D);
+int[,] arr = Transp(arr2D);
 Print2DArr(arr);

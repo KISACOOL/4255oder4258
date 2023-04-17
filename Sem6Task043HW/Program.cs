@@ -6,26 +6,26 @@
 // b1 = 2, k1 = 5, b2 = 4, k2 = 9 -> (-0,5; -0,5)
 // * Найдите площадь треугольника образованного пересечением 3 прямых
 
-double ReadData(string msg)
-{
-  Console.WriteLine(msg);
-  double res = double.Parse(Console.ReadLine() ?? "0");
-  return res;
-}
+// double ReadData(string msg)
+// {
+//   Console.WriteLine(msg);
+//   double res = double.Parse(Console.ReadLine() ?? "0");
+//   return res;
+// }
 
-//Метод вычисляющий точки пересечения. 
-void FindIntersectionPoint(double b1, double k1, double b2, double k2)
-{
-  double x = -(b1 - b2)/(k1 - k2);
-  double y = k1 * x + b1;
-  Console.WriteLine("Точка пересечения двух прямых: " + (x,y));
-}
+// //Метод вычисляющий точки пересечения. 
+// void FindIntersectionPoint(double b1, double k1, double b2, double k2)
+// {
+//   double x = -(b1 - b2)/(k1 - k2);
+//   double y = k1 * x + b1;
+//   Console.WriteLine("Точка пересечения двух прямых: " + (x,y));
+// }
 
-double b1 = ReadData("Введите точу b1: ");
-double k1 = ReadData("Введите точу k1: ");
-double b2 = ReadData("Введите точу b2: ");
-double k2 = ReadData("Введите точу k2: ");
-FindIntersectionPoint(b1, k1, b2, k2);
+// double b1 = ReadData("Введите точу b1: ");
+// double k1 = ReadData("Введите точу k1: ");
+// double b2 = ReadData("Введите точу b2: ");
+// double k2 = ReadData("Введите точу k2: ");
+// FindIntersectionPoint(b1, k1, b2, k2);
 
 
 // // Задача 43*
@@ -91,3 +91,77 @@ FindIntersectionPoint(b1, k1, b2, k2);
 //   double squareT = Math.Sqrt(((a + b + c) / 2) * (((a + b + c) / 2) - a) * (((a + b + c) / 2) - b) * (((a + b + c) / 2) - c));
 //   return squareT;
 // }
+
+const int X1 = 0;
+const int Y1 = 1;
+const int X2 = 0;
+const int Y2 = 1;
+const int X3 = 0;
+const int Y3 = 1;
+const int coef = 0;
+const int con = 1;
+const int Line1 = 1;
+const int Line2 = 2;
+const int Line3 = 3;
+
+//Вызов метода для записи чисел
+double[] LineData1 = LineData(Line1);
+double[] LineData2 = LineData(Line2);
+double[] LineData3 = LineData(Line3);
+
+if (IntersectLines(LineData1, LineData2,LineData3))
+{
+    double[] coord1 = FindCoords1(LineData1, LineData2);
+    Console.WriteLine($"Точка пересечений уравнений Y = {LineData1[coef]}*X+{LineData1[con]} /n Y= {LineData2[coef]}*X+{LineData2[con]}");
+    Console.WriteLine($"Имеет координаты ({coord1[X1]}, {coord1[Y1]})");
+    double[] coord2 = FindCoords2(LineData2, LineData3);
+    Console.WriteLine($"Точка пересечений уравнений Y = {LineData2[coef]}*X+{LineData2[con]} /n Y= {LineData3[coef]}*X+{LineData3[con]}");
+    Console.WriteLine($"Имеет координаты ({coord2[X2]}, {coord2[Y2]})");
+    double[] coord3 = FindCoords3(LineData1, LineData3);
+    Console.WriteLine($"Точка пересечений уравнений Y = {LineData1[coef]}*X+{LineData1[con]} /n Y= {LineData3[coef]}*X+{LineData3[con]}");
+    Console.WriteLine($"Имеет координаты ({coord3[X3]}, {coord3[Y3]})");
+    Console.WriteLine($"Площадь треугольника = {(1/2) * (Math.Abs((coord2[X2] - coord1[X1])*(coord3[Y3]-coord3[Y1]) - (coord3[X3] - coord1[X1])*(coord2[Y2]-coord1[Y1])))}");
+}
+
+//Ввод числа
+double ReadMSG(string msg)
+{
+    Console.Write(msg);
+    string row = Console.ReadLine();
+    double res = Convert.ToDouble(row);
+    return res;
+}
+
+//Данные в пямую
+double[] LineData(double NumOfLines)
+{
+    double[] LineData = new double[3];
+    LineData[coef] = ReadMSG($"Введите k для {NumOfLines} прямой: ");
+    LineData[con] = ReadMSG($"Введите b для {NumOfLines} прямой: ");
+    return LineData;
+}
+
+//Поиск координат
+double[] FindCoords1(double[] LineData1, double[] LineData2)
+{
+    double[] coord1 = new double[2];
+    coord1[X1] = (LineData1[con] - LineData2[con]) / (LineData2[coef] - LineData1[coef]);
+    coord1[Y1] = LineData1[coef] * coord1[X1] + LineData1[con];
+    return coord1;
+}
+
+double[] FindCoords2(double[] LineData2, double[] LineData3)
+{
+    double[] coord2 = new double[2];
+    coord2[X2] = (LineData2[con] - LineData3[con]) / (LineData3[coef] - LineData2[coef]);
+    coord2[Y2] = LineData1[coef] * coord2[X2] + LineData1[con];
+    return coord2;
+}
+
+double[] FindCoords3(double[] LineData1, double[] LineData3)
+{
+    double[] coord3 = new double[2];
+    coord3[X3] = (LineData3[con] - LineData1[con]) / (LineData1[coef] - LineData3[coef]);
+    coord3[Y3] = LineData1[coef] * coord3[X3] + LineData1[con];
+    return coord3;
+}

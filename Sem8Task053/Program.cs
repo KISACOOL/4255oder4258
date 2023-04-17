@@ -1,7 +1,7 @@
-﻿// Задача №48
-// Задайте двумерный массив размера m на n,
-// каждый элемент в массиве находится по формуле: Aₘₙ = m+n.
-// Выведите полученный массив на экран.
+﻿// Задача №53
+// Задайте двумерный массив. Напишите программу,
+// которая поменяет местами первую и последнюю
+// строку массива.
 
 
 //Метод ввода
@@ -46,21 +46,22 @@ void Print2DArr(int[,] arr)
   }
 }
 
-int[,] FillNM2DArr(int[,] arr)
+void Change2DArr(int[,] matr)
 {
-    for (int i = 0; i < arr.GetLength(0); i++)
-    {
-        for(int j=0; j < arr.GetLength(1); j++)
-        {
-            arr[i,j] = i+j;
-        }
-    }
-    return arr;
+  int temp = 0;
+    for(int i = 0; i < matr.GetLength(1); i++)
+  {
+
+    temp = matr[0,i];
+    matr[0,i] = matr [matr.GetLength(1) - 1,i];
+    matr [matr.GetLength(1) - 1,i] = temp;
+  }
+
 }
 
 int row = ReadData("Введите кол-во строк: ");
 int col = ReadData("Введите кол-во столбцов: ");
 int[,] arr2D = Gen2DArr(row, col, 10, 99);
 Print2DArr(arr2D);
-int[,] arr = FillNM2DArr(arr2D);
+
 Print2DArr(arr);

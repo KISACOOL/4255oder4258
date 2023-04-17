@@ -34,5 +34,19 @@ void Print1DArr(int[] arr)
 
 int[] CopyArr(int[] arr)
 {
-  int[] outArry
+  int[] outArry = new int[arr.Length];
+  for(int i = 0; i < arr.Length; i++)
+  {
+    outArry[i] = arr[i];
+  }
+  return outArry;
 }
+
+int[] arr = Gen1DArr(10, 0, 100);
+Print1DArr(arr);
+int [] newArr = CopyArr(arr);
+Print1DArr(newArr);
+
+int[] outArry = new int[arr.Length];
+arr.CopyTo(outArry,0);
+Print1DArr(outArry);

@@ -1,8 +1,8 @@
-﻿// Задача №48
-// Задайте двумерный массив размера m на n,
-// каждый элемент в массиве находится по формуле: Aₘₙ = m+n.
-// Выведите полученный массив на экран.
-
+﻿// Задача №57
+// Составить частотный словарь элементов
+// двумерного массива. Частотный словарь содержит
+// информацию о том, сколько раз встречается
+// элемент входных данных.
 
 //Метод ввода
 int ReadData(string msg)
@@ -46,21 +46,34 @@ void Print2DArr(int[,] arr)
   }
 }
 
-int[,] FillNM2DArr(int[,] arr)
+int[] FreqArr(int[,] arr, int count)
 {
-    for (int i = 0; i < arr.GetLength(0); i++)
+  int[] outArr = new int[count];
+    for(int i = 0; i < arr.GetLength(0); i++)
+  {
+    for(int j = 0; j < arr.GetLength(1); j++)
     {
-        for(int j=0; j < arr.GetLength(1); j++)
-        {
-            arr[i,j] = i+j;
-        }
+      outArr[arr[i,j]]++;
     }
-    return arr;
+  
+  }
+  return outArr;
+}
+
+void Print1DArray(int[] arr)
+
+{
+    Console.Write("[");
+    for (int i = 0; i < arr.Length - 1; i++)
+    {
+        Console.Write(arr[i] + ",");
+    }
+    Console.WriteLine(arr[arr.Length - 1] + "]");
 }
 
 int row = ReadData("Введите кол-во строк: ");
 int col = ReadData("Введите кол-во столбцов: ");
-int[,] arr2D = Gen2DArr(row, col, 10, 99);
+int[,] arr2D = Gen2DArr(row, col, 0, 9);
 Print2DArr(arr2D);
-int[,] arr = FillNM2DArr(arr2D);
-Print2DArr(arr);
+int[] arrFreq = FreqArr(arr2D);
+Print1DArray(arrFreq);
