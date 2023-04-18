@@ -60,7 +60,7 @@ int[,] FillNM2DArr(int[,] arr)
 
 int row = ReadData("Введите кол-во строк: ");
 int col = ReadData("Введите кол-во столбцов: ");
-int[,] arr2D = Gen2DArr(row, col, 10, 99);
+int[,] arr2D = new int[row,col]; //Gen2DArr(row, col, 10, 99);
 Print2DArr(arr2D);
 int[,] arr = FillNM2DArr(arr2D);
 Print2DArr(arr);

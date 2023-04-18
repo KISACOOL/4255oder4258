@@ -1,4 +1,15 @@
-﻿
+﻿// Задача 50.
+// Напишите программу, которая на вход принимает позиции
+// элемента в двумерном массиве, и возвращает значение этого 
+// элемента или же указание, что такого элемента нет.
+// * Заполнить числами Фиббоначи и выделить цветом найденную цифру
+// Например, задан массив:
+// 1 4 7 2
+// 5 9 2 3
+// 8 4 2 4
+// 17 -> такого числа в массиве нет
+
+
 int ReadData(string msg)
 {
   Console.WriteLine(msg);
@@ -40,18 +51,22 @@ void Print2DArr(int[,] arr)
   }
 }
 
-void FindElm(int[,] arr)
+void FindElm(int[,] arr, int x, int y)
 {
   if(x > arr.GetLength(0) || y > arr.GetLength(1))
-  // Console.WriteLine(sum);
-  // {
-  //   sum+=arr[i,i];
-  // }
-  // Console.WriteLine(sum);   
+  {
+    Console.WriteLine("Такого элемента нет");
+  }
+  else
+  {
+    Console.WriteLine(arr[x,y]);
+  } 
 }
 
 int row = ReadData("Введите колличество строк: ");
 int col = ReadData("Введите колличество столбцов: ");
 int[,] arr2D = Gen2DArr(row, col, 10, 99);
 Print2DArr(arr2D);
-MainDiagSum(arr2D);
+int rowNum = ReadData("Введите значение строки: ");
+int colNum = ReadData("Введите значение столбца: ");
+FindElm(arr2D,rowNum,colNum);
