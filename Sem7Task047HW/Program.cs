@@ -32,7 +32,7 @@ double[,] Gen2DArr(int countRow, int countColumn, int minValue, int maxValue)
 
 void Print2DArr(double[,] arr)
 {
-  ConsoleColor[] col = new ConsoleColor[]{ConsoleColor.Black,ConsoleColor.Blue,ConsoleColor.Cyan,
+    ConsoleColor[] col = new ConsoleColor[]{ConsoleColor.Black,ConsoleColor.Blue,ConsoleColor.Cyan,
                                         ConsoleColor.DarkBlue,ConsoleColor.DarkCyan,ConsoleColor.DarkGray,
                                         ConsoleColor.DarkGreen,ConsoleColor.DarkMagenta,ConsoleColor.DarkRed,
                                         ConsoleColor.DarkYellow,ConsoleColor.Gray,ConsoleColor.Green,
@@ -42,9 +42,14 @@ void Print2DArr(double[,] arr)
   {
     for(int j = 0; j < arr.GetLength(1); j++)
     {
+      char[] nambers = arr[i,j].ToString().ToCharArray();
+      for(int k = 0; k < nambers.Length; k++)
+      {
       Console.ForegroundColor = col[new Random().Next(0,16)];
-      Console.Write(arr[i, j] + " ");
+      Console.Write(nambers[k]);
       Console.ResetColor();
+      }
+      Console.Write(" ");
     }
   Console.WriteLine();  
   }
