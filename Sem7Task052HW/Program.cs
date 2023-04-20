@@ -69,39 +69,39 @@ double[] ColMean(int[,] arr)
   return mean;
 }
 
-void ColorDiagArr(int[,] arr)
-{
-  ConsoleColor[] color = new ConsoleColor[]{ConsoleColor.Black,ConsoleColor.Blue,ConsoleColor.Cyan,
-                                        ConsoleColor.DarkBlue,ConsoleColor.DarkCyan,ConsoleColor.DarkGray,
-                                        ConsoleColor.DarkGreen,ConsoleColor.DarkMagenta,ConsoleColor.DarkRed,
-                                        ConsoleColor.DarkYellow,ConsoleColor.Gray,ConsoleColor.Green,
-                                        ConsoleColor.Magenta,ConsoleColor.Red,ConsoleColor.White,
-                                        ConsoleColor.Yellow};
+// void ColorDiagArr(int[,] arr)
+// {
+//   ConsoleColor[] color = new ConsoleColor[]{ConsoleColor.Black,ConsoleColor.Blue,ConsoleColor.Cyan,
+//                                         ConsoleColor.DarkBlue,ConsoleColor.DarkCyan,ConsoleColor.DarkGray,
+//                                         ConsoleColor.DarkGreen,ConsoleColor.DarkMagenta,ConsoleColor.DarkRed,
+//                                         ConsoleColor.DarkYellow,ConsoleColor.Gray,ConsoleColor.Green,
+//                                         ConsoleColor.Magenta,ConsoleColor.Red,ConsoleColor.White,
+//                                         ConsoleColor.Yellow};
 
-  for (int i = 0; i < arr.GetLength(0); i++)
-  {
-    if (i % 2 == 0)
-    {
-      for (int j = 0; j < arr.GetLength(1); j = j + 2)
-      {
-        Console.ForegroundColor = color[new Random().Next(0,1)];
-        Console.Write(arr[i, j] + " ");
-        Console.ResetColor();
-      }
-    }
-    else
-    {
-      // i++;
-      for (int j = 1; j < arr.GetLength(1); j = j + 2)
-      {
-        Console.ForegroundColor = color[new Random().Next(2,3)];
-        Console.Write(arr[i, j] + " ");
-        Console.ResetColor();
-      }
-    }
-    Console.WriteLine();
-  }
-}
+//   for (int i = 0; i < arr.GetLength(0); i++)
+//   {
+//     if (i % 2 == 0)
+//     {
+//       for (int j = 0; j < arr.GetLength(1); j = j + 2)
+//       {
+//         Console.ForegroundColor = color[new Random().Next(0,1)];
+//         Console.Write(arr[i, j] + " ");
+//         Console.ResetColor();
+//       }
+//     }
+//     else
+//     {
+//       // i++;
+//       for (int j = 1; j < arr.GetLength(1); j = j + 2)
+//       {
+//         Console.ForegroundColor = color[new Random().Next(2,3)];
+//         Console.Write(arr[i, j] + " ");
+//         Console.ResetColor();
+//       }
+//     }
+//     Console.WriteLine();
+//   }
+// }
 
 int row = ReadData("Введите колличество строк: ");
 int col = ReadData("Введите колличество столбцов: ");
@@ -109,6 +109,6 @@ int[,] arr2D = Gen2DArr(row, col, 10, 99);
 double[] arr = ColMean(arr2D);
 // ConsoleColor col1 = ReadData("Введите цвет первой диогонали: ");
 // ConsoleColor col2 = ReadData("Введите цвет второй диогонали: ");
-ColorDiagArr(arr2D);
+// ColorDiagArr(arr2D);
 
 Print1DArr(arr);
