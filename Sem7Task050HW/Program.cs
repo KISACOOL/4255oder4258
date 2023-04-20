@@ -134,3 +134,28 @@ Print2DArr(arr2D);
 int rowNum = ReadData("Введите значение строки: ");
 int colNum = ReadData("Введите значение столбца: ");
 FindElm(arr2D,rowNum,colNum);
+
+// Метод заполнения 2х-мерного массива числами Фибоначчи :
+long[,] Fibonacci2Darr(int countRow, int countColumn)
+{
+    long[,] arr = new long[countRow, countColumn];
+    long first = 0;
+    long last = 1;
+    for (int i = 0; i < countRow; i++)
+    {
+        for (int j = 0; j < countColumn; j++)
+        {
+            if (j < 2)
+            {
+                arr[0, 0] = 0;
+                arr[0, 1] = 1;
+            }
+            else
+            {
+                arr[i, j] = (first + last);
+                (first, last) = (last, first + last);
+            }
+        }
+    }
+    return arr;
+}
