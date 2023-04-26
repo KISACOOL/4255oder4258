@@ -11,16 +11,27 @@ int ReadData(string msg)
 }
 
 string RecMN(int m, int n)
-{
+{ 
   if(m <= n)
   {
   return m + "_" + RecMN(m + 1, n);
   }
-  else{
+  else
+  {
     return string.Empty;
   }
 }
 
 int m = ReadData("Введите m: ");
 int n = ReadData("Введите n: ");
-Console.WriteLine (RecMN(m, n));
+
+// if(m > n)
+// {
+//   int buf = m;
+//   m = n;
+//   n = buf;
+// }
+
+
+// Console.WriteLine (RecMN((m > n)?n:m, (m > n)?m:n));
+Console.WriteLine ((m > n)?RecMN(n,m):RecMN(m,n));
