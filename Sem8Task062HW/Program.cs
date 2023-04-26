@@ -7,47 +7,32 @@
 // 10 09 08 07
 
 
-// int[,] Gen2DArr(int countRow, int countColumn, int minValue, int maxValue)
-// {
-//   int[,] arr = new int[countRow, countColumn];
-//   for(int i = 0; i < countRow; i++)
-//   {
-//     for(int j = 0; j < countColumn; j++)
-//     {
-//       arr[i,j] = new Random().Next(minValue,maxValue + 1);
-//     }
+void Print2DArr(int[,] arr)
+{
+  ConsoleColor[] col = new ConsoleColor[]{ConsoleColor.Black,ConsoleColor.Blue,ConsoleColor.Cyan,
+                                        ConsoleColor.DarkBlue,ConsoleColor.DarkCyan,ConsoleColor.DarkGray,
+                                        ConsoleColor.DarkGreen,ConsoleColor.DarkMagenta,ConsoleColor.DarkRed,
+                                        ConsoleColor.DarkYellow,ConsoleColor.Gray,ConsoleColor.Green,
+                                        ConsoleColor.Magenta,ConsoleColor.Red,ConsoleColor.White,
+                                        ConsoleColor.Yellow};
+  for(int i = 0; i < arr.GetLength(0); i++)
+  {
+    for(int j = 0; j < arr.GetLength(1); j++)
+    {
+      Console.ForegroundColor = col[new Random().Next(0,16)];
+      Console.Write(arr[i, j] + " ");
+      Console.ResetColor();
+    }
+  Console.WriteLine();  
+  }
+}
 
-//   }
-//   return arr;
-// }
-
-
-// void Print2DArr(int[,] arr)
-// {
-//   ConsoleColor[] col = new ConsoleColor[]{ConsoleColor.Black,ConsoleColor.Blue,ConsoleColor.Cyan,
-//                                         ConsoleColor.DarkBlue,ConsoleColor.DarkCyan,ConsoleColor.DarkGray,
-//                                         ConsoleColor.DarkGreen,ConsoleColor.DarkMagenta,ConsoleColor.DarkRed,
-//                                         ConsoleColor.DarkYellow,ConsoleColor.Gray,ConsoleColor.Green,
-//                                         ConsoleColor.Magenta,ConsoleColor.Red,ConsoleColor.White,
-//                                         ConsoleColor.Yellow};
-//   for(int i = 0; i < arr.GetLength(0); i++)
-//   {
-//     for(int j = 0; j < arr.GetLength(1); j++)
-//     {
-//       Console.ForegroundColor = col[new Random().Next(0,16)];
-//       Console.Write(arr[i, j] + " ");
-//       Console.ResetColor();
-//     }
-//   Console.WriteLine();  
-//   }
-// }
-
-// int ReadData(string msg)
-// {
-//   Console.WriteLine(msg);
-//   int res = int.Parse(Console.ReadLine() ?? "0");
-//   return res;
-// }
+int ReadData(string msg)
+{
+  Console.WriteLine(msg);
+  int res = int.Parse(Console.ReadLine() ?? "0");
+  return res;
+}
 
 // int[,] sqareMatrix(int countRow, int countColumn)
 // {
@@ -136,9 +121,26 @@
 //   }
 // }
 
-// int row = ReadData("Введите колличество строк: ");
-// int col = ReadData("Введите колличество столбцов: ");
-// int[,] spirArr = sqareMatrix(row, col);
-// WriteArray(spirArr);
+int[,] GenSpiralArr(int size)
+{
+  int[,] nums = new int[size,size];
 
+  int num = 1;
+  int i = 0;
+  int x = 0;
 
+  while(num <= size * size)
+  {
+    nums[i,x] = num;
+    if(i <= x + 1 && i + x < size - 1)++x;
+    else if(i < x && i + x >= size - 1)++i;
+    else if(i >= x && i + x > size - 1)--x;
+    else --i;
+    ++num;
+  }
+  return nums;
+}
+
+int row = ReadData("Введите длинну стороны: ");
+int[,] spirArr = GenSpiralArr(row);
+Print2DArr(spirArr);
