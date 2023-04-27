@@ -12,20 +12,18 @@ int ReadData(string msg)
   return res;
 }
 
-string RecMN(int m, int n)
+int RecSumMN(int m, int n)
 { 
-  if(m <= n)
+  if(m >= n)
   {
-  return m + RecMN(m + 1, n);
+    return n;
   }
   else
   {
-    return string.Empty;
+    return m + RecSumMN(m + 1, n);
   }
 }
 
 int m = ReadData("Введите m: ");
 int n = ReadData("Введите n: ");
-
-// Console.WriteLine (RecMN((m > n)?n:m, (m > n)?m:n));
-// Console.WriteLine ((m > n)?RecMN(n,m):RecMN(m,n));
+Console.WriteLine ((m > n)?RecSumMN(n,m):RecSumMN(m,n));

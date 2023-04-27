@@ -14,7 +14,7 @@ int ReadData(string msg)
 int FunctionAkkerman(int m, int n)
 {
   if(m == 0) return n + 1;
-  else if(n ==0) return FunctionAkkerman(m - 1,1);
+  else if(n == 0) return FunctionAkkerman(m - 1,1);
   else return FunctionAkkerman(m - 1,FunctionAkkerman(m,n - 1));
 }
 
