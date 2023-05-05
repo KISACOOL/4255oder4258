@@ -54,35 +54,18 @@ void Print2DArr(int[,] arr)
 
 void SortArr(int[,] arr)
 {
-  int[] buf = new int[arr.GetLength(1)];
-  for (int i = 0; i < arr.GetLength(0); i++)
+  for(int i = 0; i < arr.GetLength(0); i++)
   {
-    for (int j = 0; j < arr.GetLength(1); j++)
+    for(int j = 0; j < arr.GetLength(1); j++)
     {
-      buf[j] = arr[i, j];
-
-      // int max = arr.Max();
-      // int min = arr.Min();
-
-      // int[] count = new int[max - min + 1];
-      // int z = 0;
-
-      // for (int i = 0; i < arr.Length; i++)
-      // {
-      //   count[arr[i] - min]++;
-      // }
-      // for (int i = min; i <= max; i++)
-      // {
-      //   while (count[i - min]-- > 0)
-      //   {
-      //     arr[z] = i;
-      //     z++;
-      //   }
-    }
-    }
-      for (int j = 0; j < arr.GetLength(1); j++)
+      for(int k = 0; k < arr.GetLength(1) - 1; k++)
       {
-        arr[i, j] = buff[j];
+        if(arr[i,k] < arr[i,k + 1])
+        {
+          int temp = arr[i,k + 1];
+          arr[i,k + 1] = arr[i,k];
+          arr[i,k] = temp;
+        }
       }
     }
   }
@@ -90,7 +73,8 @@ void SortArr(int[,] arr)
 
 int row = ReadData("Введите кол-во строк: ");
 int col = ReadData("Введите кол-во столбцов: ");
-int[,] arr2D = Gen2DArr(row, col, 10, 99);
+int[,] arr2D = Gen2DArr(row, col, 1, 10);
 Print2DArr(arr2D);
 SortArr(arr2D);
+Console.WriteLine();
 Print2DArr(arr2D);

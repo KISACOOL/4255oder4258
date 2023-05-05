@@ -49,3 +49,32 @@ void Print2DArr(int[,] arr)
     Console.WriteLine();
   }
 }
+
+
+int row = ReadData("Введите кол-во строк: ");
+int col = ReadData("Введите кол-во столбцов: ");
+int[,] firstArr2D = Gen2DArr(row, col, 1, 10);
+Print2DArr(firstArr2D);
+Console.WriteLine();
+int[,] secondArr2D = Gen2DArr(row, col, 1, 10);
+Print2DArr(secondArr2D);
+
+int[,] resultArray = new int[row,col];
+if(firstArr2D.GetLength(0) != secondArr2D.GetLength(1))
+{
+  Console.WriteLine("Нельзя перемножить" );
+  return;
+}
+for(int i = 0; i < firstArr2D.GetLength(0); i++)
+  {
+    for(int j = 0; j < secondArr2D.GetLength(1); j++)
+    {
+      resultArray[i,j] = 0;
+      for(int k = 0; k < firstArr2D.GetLength(1); k++)
+      {
+        resultArray[i,j] += firstArr2D[i,k] * secondArr2D[k,j];
+      }
+    }
+  }
+
+  Print2DArr(resultArray);
